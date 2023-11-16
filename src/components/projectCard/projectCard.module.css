@@ -1,0 +1,91 @@
+.projectCard {
+  /* border: 1px solid var(--color-reverse); */
+  --corner-inset: 30px;
+  --image-margin: var(--space-xs);
+  background-color: var(--color-primary);
+  flex: 0 0 40%;
+  /* clip-path: polygon(0 0, calc(100% - var(--corner-inset)) 0%, 100% var(--corner-inset), 100% 100%, 0 100%); */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  position: relative;
+  color: var(--color-reverse);
+  padding: var(--space-lg);
+}
+
+.projectCard::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  /* background-color: red; */
+  /* background: linear-gradient(315deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%); */
+}
+
+.projectCard:hover {
+  color: var(--color-reverse);
+  /* box-shadow: white 10px 10px 10px ; */
+}
+
+.projectCard:hover .projectImage {
+  filter: blur(10px);
+  scale: 1.1;
+}
+
+.projectImage {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
+  transition: scale var(--anim-lg), filter var(--anim-lg);
+  z-index: 0;
+}
+
+.projectInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: var(--space-sm);
+  /* border-bottom: 1px solid var(--color-reverse);
+  padding-bottom: var(--space-sm); */
+  z-index: 1;
+  max-width: 240px;
+}
+
+.projectTitle {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: var(--space-xs);
+  text-align: center;
+}
+
+.projectSubtitle {
+  background-color: var(--color-reverse);
+  color: var(--color-ink);
+  padding: 2px var(--space-xs);
+  border-radius: var(--radius-rounded);
+  display: flex;
+  flex-direction: row;
+  gap: var(--space-2xs);
+}
+
+.projectSubtitle svg {
+  width: 10px;
+}
+
+.projectSummary {
+  margin: 0;
+}

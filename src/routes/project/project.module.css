@@ -1,0 +1,34 @@
+.project {
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  align-items: stretch;
+  gap: var(--space-md);
+  flex: 1 0 auto;
+}
+
+.projectImage {
+  /* height: auto; */
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  flex: 0 0 60%;
+}
+
+.projectInfo {
+}
+
+.projectInfo .backLink {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.projectInfo .backLink svg {
+  width: 4px;
+  stroke-width: 12px;
+}
+
+.projectInfo .backLink {
+  color: inherit;
+}
