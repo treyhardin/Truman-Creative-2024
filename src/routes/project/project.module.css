@@ -5,30 +5,212 @@
   align-items: stretch;
   gap: var(--space-md);
   flex: 1 0 auto;
+  margin-top: var(--header-height);
+  padding: 0 var(--space-md) var(--space-md);
+  height: calc(100dvh - var(--header-height) - var(--space-md));
+  overflow: auto;
+}
+
+.projectImageWrapper {
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  /* height: calc(100dvh - var(--header-height) - var(--space-md)); */
+  flex: 1 1 auto;
+  position: sticky;
+  top: 0;
+}
+
+.projectImage,
+.videoAutoplay {
+  /* min-width: 0; */
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .projectImage {
-  /* height: auto; */
-  object-fit: cover;
-  border-radius: var(--radius-sm);
-  flex: 0 0 60%;
+  z-index: 0;
 }
 
-.projectInfo {
+.videoAutoplay {
+  z-index: 1;
 }
 
-.projectInfo .backLink {
+.lightbox {
+  position: fixed;
+  inset: 0;
+  max-height: 100dvh;
+  background-color: rgba(0, 0, 0, 50%);
+  backdrop-filter: blur(40px);
+  color: var(--color-reverse);
+  z-index: 99999;
+  padding: var(--space-sm) 0;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   gap: var(--space-xs);
 }
 
-.projectInfo .backLink svg {
-  width: 4px;
-  stroke-width: 12px;
+.lightboxHeader {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 0 var(--space-sm);
 }
 
-.projectInfo .backLink {
-  color: inherit;
+.lightboxCloseButton {
+  width: auto;
+  padding: var(--space-xs);
+  background-color: transparent;
+  border: 1px solid currentColor;
+  color: currentColor;
+}
+
+.lightboxCloseButton:hover {
+  background-color: var(--color-primary);
+}
+
+.lightboxCloseButton svg {
+  width: 20px;
+  rotate: 45deg;
+}
+
+.lightboxCloseButton svg path {
+  fill: none;
+  stroke: currentColor;
+}
+
+.videoPlayer {
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  max-height: 80dvh;
+  flex: 0 1 auto;
+}
+
+.subtitle {
+  position: absolute;
+  top: var(--space-xs);
+  right: var(--space-xs);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: var(--color-reverse);
+  color: var(--color-ink);
+  border-radius: var(--radius-rounded);
+  padding: var(--space-3xs) var(--space-xs);
+  gap: var(--space-xs);
+  margin-bottom: var(--space-sm);
+  z-index: 3;
+}
+
+.playButton {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  width: auto;
+  z-index: 3;
+  border-radius: var(--radius-rounded);
+  padding: var(--space-xs) var(--space-md);
+  gap: var(--space-2xs);
+  background-color: transparent;
+  color: var(--color-reverse);
+  border-color: var(--color-reverse);
+}
+
+.playButton:hover {
+  background-color: var(--color-reverse);
+  color: var(--color-ink);
+}
+
+.projectInfo {
+  flex: 0 0 100%;
+  max-width: var(--sidebar-width);
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  margin-bottom: var(--space-xs);
+}
+
+.subtitle svg {
+  width: 10px;
+}
+
+.tagWrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--space-2xs);
+  margin-bottom: var(--space-sm);
+}
+
+.projectTag {
+  border: 0.5px solid var(--color-reverse);
+  border-radius: var(--radius-rounded);
+  padding: var(--space-3xs) var(--space-xs);
+}
+
+.summary {
+
+}
+
+.description {
+  margin-bottom: var(--space-md);
+}
+
+.projectLinks {
+  display: flex;
+  flex-direction: row;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.otherProjectsWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.otherProjectItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: var(--space-xs) 0;
+  border-bottom: 1px solid var(--color-subdued);
+}
+
+.otherProjectText {
+  display: flex;
+  flex-direction: column;
+}
+
+.otherProjectItem svg {
+  width: 14px;
+}
+
+@media screen and (max-width: 768px) {
+  .project {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .projectImageWrapper {
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    flex: 1 0 auto;
+    position: relative;
+  }
+
+  .projectInfo {
+    max-width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
 }

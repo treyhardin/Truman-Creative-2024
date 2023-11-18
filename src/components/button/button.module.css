@@ -1,0 +1,50 @@
+button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  color: var(--color-ink);
+  padding: 0 0 0 var(--space-xs);
+  transition: background-color var(--anim-sm);
+  width: 100%;
+  margin-bottom: var(--space-xs);
+}
+
+button:hover {
+  background-color: var(--color-secondary);
+}
+
+button svg {
+  width: 12px;
+}
+
+.buttonText {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xs) 0;
+  transition: translate var(--anim-sm);
+}
+
+button:hover .buttonText {
+  translate: var(--space-2xs) 0;
+}
+
+.buttonLines {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: var(--space-2xs);
+  padding: 0 var(--space-2xs);
+  transition: translate var(--anim-sm);
+}
+
+button:hover .buttonLines {
+  translate: 100% 0;
+}
+
+.buttonLine {
+  width: 1px;
+  background-color: currentColor;
+}

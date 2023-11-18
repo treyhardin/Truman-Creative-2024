@@ -1,8 +1,31 @@
 .projects {
+  margin: var(--header-height) 0 0;
+  padding: 0 var(--space-md);
+  overflow: hidden auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: calc(100dvh - var(--header-height));
+}
+
+.projectsContainer {
+  min-height: 300dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.projectsTrack {
+  width: auto;
+  max-width: unset;
   display: flex;
   flex-direction: row;
   gap: var(--space-sm);
   align-items: stretch;
   flex-grow: 1;
-  padding: var(--space-sm) 0 0;
+  max-height: calc(100dvh - var(--header-height) - var(--space-sm));
+  position: sticky;
+  top: 0;
+  overflow: visible;
 }

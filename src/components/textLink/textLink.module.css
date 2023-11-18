@@ -1,0 +1,10 @@
+.textLink {
+  display: flex;
+  flex-direction: row;
+  gap: var(--space-2xs);
+  align-items: center;
+}
+
+.textLink svg {
+  width: 10px;
+}

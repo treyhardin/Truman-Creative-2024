@@ -1,0 +1,257 @@
+.header {
+  padding: var(--space-md) var(--space-md) 0;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 80px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;min-height: var(--header-height);
+  max-height: var(--header-height);
+  z-index: 999;
+  background-color: transparent;
+  transition: background-color var(--anim-sm), color var(--anim-sm), max-height var(--anim-sm);
+}
+
+.header.menuOpen {
+  max-height: 100dvh;
+  background-color: var(--color-light);
+  color: var(--color-ink);
+  transition: background-color var(--anim-sm), color var(--anim-sm), max-height var(--anim-sm);
+}
+
+.headerInner {
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  align-items: stretch;
+  gap: var(--space-sm);
+  flex-grow: 0;
+  height: calc(var(--header-height) - var(--space-md) * 2);
+  z-index: 1;
+  margin-bottom: var(--space-sm);
+}
+
+.menuButton {
+  border-radius: 0px;
+  max-width: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  align-items: stretch;
+  padding: 0;
+  overflow: hidden;
+  align-self: stretch;
+  border-color: currentColor;
+  background-color: transparent;
+  color: inherit;
+  margin: 0;
+}
+
+.menuButton:hover {
+  border-color: currentColor;
+  background-color: transparent;
+}
+
+.menuButton:focus,
+.menuButton:focus-visible {
+  outline: none;
+}
+
+.header.menuOpen .menuButton {
+  color: var(--color-ink);
+}
+
+.menuButton .hamburger {
+  padding: var(--space-2xs) 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+  justify-content: center;
+  align-items: stretch;
+  flex: 0 0 auto;
+  margin: 0;
+  min-height: 0%;
+}
+
+.menuButton .hamburgerLine {
+  height: 1px;
+  background-color: currentColor;
+}
+
+.menuButton .menuOpenText,
+.menuButton .menuCloseText {
+  writing-mode: vertical-lr;
+  text-orientation: upright;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  flex-shrink: 1;
+  overflow: hidden;
+  opacity: 1;
+  translate: 0 0%;
+  transition: opacity var(--anim-sm), translate var(--anim-sm), flex-basis var(--anim-sm);
+}
+
+.menuButton:hover .menuOpenText,
+.header.menuOpen .menuButton:hover .menuOpenText,
+.menuButton:hover .menuCloseText,
+.header.menuOpen .menuButton:hover .menuCloseText {
+  flex-basis: 50%;
+  opacity: 0;
+  transition: opacity var(--anim-sm), translate var(--anim-sm), flex-basis var(--anim-sm);
+}
+
+.menuButton .menuCloseText,
+.header.menuOpen .menuButton .menuOpenText {
+  flex-basis: 0%;
+  opacity: 0;
+  flex-grow: 0;
+}
+
+.menuButton .menuOpenText,
+.header.menuOpen .menuButton .menuCloseText {
+  flex-basis: 100%;
+  opacity: 1;
+  flex-grow: 1;
+}
+
+.menuButton:hover .menuOpenText,
+.menuButton:hover .menuCloseText {
+  opacity: 0;
+}
+
+.headerContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  flex-grow: 1;
+}
+
+.headerText {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 0 0 var(--space-md);
+}
+
+.headerTitle {
+  color: inherit;
+}
+
+.headerInfo {
+  text-align: justify;
+  flex-basis: 50%;
+  max-width: var(--sidebar-width);
+}
+
+.heroBorder {
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.heroBorder p {
+  flex: 0 0 auto;
+}
+
+.heroBorder svg {
+  flex-shrink: 1;
+}
+
+.navigationMenu {
+  flex-grow: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: stretch;
+  flex-wrap: wrap;
+  overflow: auto;
+  gap: var(--space-2xl);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--anim-sm);
+  padding-bottom: var(--space-md);
+}
+
+.header.menuOpen .navigationMenu {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.navProjects {
+  flex: 1 1 50%;
+}
+
+.navProjectItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  align-items: center;
+  color: inherit;
+  gap: var(--space-xs);
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid var(--color-ink);
+}
+
+.navProjectItem:hover {
+  background-color: var(--color-light);
+}
+
+.navProjectImage {
+  min-width: 0px;
+  flex: 0 1 20%;
+}
+
+.projectText {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  gap: var(--space-3xs);
+}
+
+.navProjectItem svg {
+  width: 12px;
+  stroke-width: 2px;
+}
+
+.navInfo {
+  flex: 1 0 20%;
+  max-width: var(--sidebar-width);
+  position: sticky;
+  top: 0;
+}
+
+.contactLinks {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+}
+
+.link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-xs);
+  color: inherit;
+}
+
+.link svg {
+  width: 8px;
+}
+
+@media screen and (max-width: 700px) {
+  .headerText {
+    flex-direction: column;
+    gap: var(--space-2xs);
+  }
+}

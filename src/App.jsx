@@ -1,37 +1,44 @@
 import './App.css'
-import Hero from './components/hero/hero'
+import Header from './components/header/header'
 import Projects from './components/projects/projects'
 import Footer from './components/footer/footer'
 import Lenis from '@studio-freight/lenis'
 import { Router, Routes, Route } from "@solidjs/router"; // 👈 Import the router
 import Project from './routes/project/project'
-import Home from './routes/home'
+import Home from './routes/home/home'
+import { Show, Suspense, createResource, createSignal, lazy } from 'solid-js'
+import { getProjects } from './utils/sanity-client'
+import Preloader from './components/preloader/preloader'
+export const [ data ] = createResource(getProjects)
 
 function App() {
 
-  const lenis = new Lenis({})
+  // const lenis = new Lenis({})
 
-  lenis.on('scroll', (e) => {
-    console.log(e)
-  })
+  // lenis.on('scroll', (e) => {
+  //   console.log(e)
+  // })
 
-  function raf(time) {
-    lenis.raf(time)
-    requestAnimationFrame(raf)
-  }
+  // function raf(time) {
+  //   lenis.raf(time)
+  //   requestAnimationFrame(raf)
+  // }
 
-  requestAnimationFrame(raf)
+  // requestAnimationFrame(raf)
 
   return (
-    <div class="App">
-      <Router>
-        <Routes>
-          <Route path="/" component={Home}></Route>
-          <Route path="/projects/:slug" component={Project}></Route>
-        </Routes>
-      </Router>
-      <Footer />
-    </div>
+    <Router>
+      <div class="App">
+        <Show when={!data.loading} fallback={Preloader}>
+          <Header />
+          <Routes>
+            <Route path="/" component={Home}></Route>
+            <Route path="/projects/:slug" component={Project}></Route>
+          </Routes>
+        {/* <Footer /> */}
+        </Show>
+      </div>
+    </Router>
   )
 }
 

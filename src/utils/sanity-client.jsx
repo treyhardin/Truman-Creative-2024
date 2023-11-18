@@ -16,7 +16,7 @@ export const urlFor = (source) => {
 }
 
 export async function getProjects() {
-  const projects = await client.fetch('*[_type == "project"]')
+  const projects = await client.fetch('*[_type == "project"]{title, slug, subtitle, mainImage, thumbnail, "videoURL": video.asset->url, "videoAutoplayURL": videoAutoplay.asset->url, summary, description, buttonText, buttonURL, links, "tags": tags[]->{title, slug}}')
   return projects
 }
 

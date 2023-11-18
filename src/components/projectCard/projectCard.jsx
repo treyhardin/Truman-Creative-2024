@@ -8,12 +8,12 @@ export default function ProjectCard({ title, subtitle, image, summary, slug, ind
     <A href={`projects/${slug}`} class={styles.projectCard}>
       <p>Text</p>
       <img 
-        src={urlFor(image).url()} 
+        src={urlFor(image).width(600).height(1000).url()} 
         class={styles.projectImage}
       />
       <div class={styles.projectInfo}>
         <div class={styles.projectTitle}>
-          <p class="h3">{title}</p>
+          <p class="h2">{title}</p>
         </div>
         <div class={styles.projectSubtitle}>
           <Icon glyph="star" />
