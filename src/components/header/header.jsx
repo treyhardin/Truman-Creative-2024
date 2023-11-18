@@ -80,19 +80,16 @@ export default function Hero() {
             <div class={styles.contactLinks}>
               <a href="#" class={styles.link}>
                 <p class="utility">GitHub</p>
-                <Icon glyph="arrowDiagonal" />
+                {/* <Icon glyph="arrowDiagonal" /> */}
               </a>
               <a href="#" class={styles.link}>
                 <p class="utility">Instagram</p>
-                <Icon glyph="arrowDiagonal" />
               </a>
               <a href="#" class={styles.link}>
                 <p class="utility">LinkedIn</p>
-                <Icon glyph="arrowDiagonal" />
               </a>
               <a href="#" class={styles.link}>
                 <p class="utility">Link</p>
-                <Icon glyph="arrowDiagonal" />
               </a>
             </div>
           </div>

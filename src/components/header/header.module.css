@@ -156,6 +156,7 @@
   justify-content: stretch;
   align-items: center;
   gap: var(--space-sm);
+  overflow: hidden;
 }
 
 .heroBorder p {
@@ -164,6 +165,7 @@
 
 .heroBorder svg {
   flex-shrink: 1;
+  flex: 1 0 100%;
 }
 
 .navigationMenu {
@@ -202,15 +204,20 @@
   gap: var(--space-xs);
   padding: var(--space-sm) 0;
   border-bottom: 1px solid var(--color-ink);
+  /* transition: padding var(--anim-short); */
 }
 
 .navProjectItem:hover {
-  background-color: var(--color-light);
+  /* background-color: var(--color-primary); */
+  color: var(--color-primary);
+  /* padding: var(--space-sm) var(--space-sm); */
 }
 
 .navProjectImage {
   min-width: 0px;
   flex: 0 1 20%;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-sm);
 }
 
 .projectText {
@@ -224,7 +231,6 @@
 
 .navProjectItem svg {
   width: 12px;
-  stroke-width: 2px;
 }
 
 .navInfo {
@@ -236,20 +242,18 @@
 
 .contactLinks {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
   gap: var(--space-2xs);
 }
 
 .link {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: var(--space-xs);
   color: inherit;
-}
-
-.link svg {
-  width: 8px;
+  border: 1px solid var(--color-ink);
+  border-radius: var(--radius-rounded);
+  padding: var(--space-3xs) var(--space-xs);
 }
 
 @media screen and (max-width: 700px) {
