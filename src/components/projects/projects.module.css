@@ -1,31 +1,22 @@
 .projects {
   margin: var(--header-height) 0 0;
-  padding: 0 var(--space-md);
-  overflow: hidden auto;
+  /* padding: 0 var(--space-md); */
+  /* overflow: hidden auto; */
+  /* overflow: hidden; */
+  overflow: visible;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  height: calc(100dvh - var(--header-height));
+  align-items: stretch;
 }
 
 .projectsContainer {
-  min-height: 300dvh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-}
-
-.projectsTrack {
-  width: auto;
-  max-width: unset;
+  padding: 0 var(--space-md) var(--space-md);
   display: flex;
   flex-direction: row;
-  gap: var(--space-sm);
+  justify-content: flex-start;
   align-items: stretch;
-  flex-grow: 1;
-  max-height: calc(100dvh - var(--header-height) - var(--space-sm));
-  position: sticky;
-  top: 0;
-  overflow: visible;
+  gap: var(--space-sm);
+  overflow: auto;
+  height: calc(100dvh - var(--header-height));
 }

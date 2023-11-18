@@ -173,7 +173,7 @@
   align-items: flex-start;
   justify-content: stretch;
   flex-wrap: wrap;
-  overflow: auto;
+  overflow: hidden auto;
   gap: var(--space-2xl);
   opacity: 0;
   pointer-events: none;
@@ -188,6 +188,7 @@
 
 .navProjects {
   flex: 1 1 50%;
+  max-width: 100%;
 }
 
 .navProjectItem {
