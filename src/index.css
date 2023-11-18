@@ -134,7 +134,7 @@ p {
   font-family: var(--font-familiy-secondary);
   font-size: 10px;
   line-height: 1.4;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   text-align: justify;
   text-justify: inter-word;
