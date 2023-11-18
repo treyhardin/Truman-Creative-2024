@@ -52,7 +52,7 @@ export default function Hero() {
           <div class={styles.heroBorder}>
             <p class="utility">Est. 2020</p>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 687 10" fill="none">
-              <path d="M0 5H687" stroke="currentColor" stroke-width="0.5px" stroke-dasharray="18 2"/>
+              <path d="M0 5H687" stroke="currentColor" vector-effect="non-scaling-stroke" stroke-width="1px" stroke-dasharray="18 2"/>
             </svg>
           </div>
         </div>
