@@ -256,6 +256,11 @@
   padding: var(--space-3xs) var(--space-xs);
 }
 
+.link:hover {
+  background-color: var(--color-ink);
+  color: var(--color-reverse);
+}
+
 @media screen and (max-width: 700px) {
   .headerText {
     flex-direction: column;

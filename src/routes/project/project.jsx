@@ -82,7 +82,7 @@ export default function Project() {
               </Show>
 
               <Show when={currentProject().videoAutoplayURL}>
-                <video class={styles.videoAutoplay} autoPlay loop muted playsInline>
+                <video class={styles.videoAutoplay} autoplay loop muted playsinline>
                   <source type="video/mp4" src={currentProject().videoAutoplayURL} />
                 </video>
               </Show>

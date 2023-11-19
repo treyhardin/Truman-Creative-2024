@@ -78,18 +78,14 @@ export default function Hero() {
           <div class={styles.navInfo}>
             <p>Get in Touch</p>
             <div class={styles.contactLinks}>
-              <a href="#" class={styles.link}>
+              <a href="https://github.com/treyhardin" class={styles.link} target='_blank'>
                 <p class="utility">GitHub</p>
-                {/* <Icon glyph="arrowDiagonal" /> */}
               </a>
-              <a href="#" class={styles.link}>
+              <a href="https://www.instagram.com/trumancreativeco" class={styles.link} target='_blank'>
                 <p class="utility">Instagram</p>
               </a>
-              <a href="#" class={styles.link}>
+              <a href="https://www.linkedin.com/in/trey-hardin-3b309999/" class={styles.link} target='_blank'>
                 <p class="utility">LinkedIn</p>
-              </a>
-              <a href="#" class={styles.link}>
-                <p class="utility">Link</p>
               </a>
             </div>
           </div>
