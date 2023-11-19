@@ -1,6 +1,5 @@
 import './App.css'
 import Header from './components/header/header'
-import Projects from './components/projects/projects'
 import Footer from './components/footer/footer'
 import Lenis from '@studio-freight/lenis'
 import { Router, Routes, Route } from "@solidjs/router"; // 👈 Import the router
@@ -9,6 +8,7 @@ import Home from './routes/home/home'
 import { Show, Suspense, createResource, createSignal, lazy } from 'solid-js'
 import { getProjects } from './utils/sanity-client'
 import Preloader from './components/preloader/preloader'
+
 export const [ data ] = createResource(getProjects)
 
 function App() {
@@ -33,6 +33,7 @@ function App() {
           <Header />
           <Routes>
             <Route path="/" component={Home}></Route>
+            <Route path="/projects" component={Home}></Route>
             <Route path="/projects/:slug" component={Project}></Route>
           </Routes>
         {/* <Footer /> */}

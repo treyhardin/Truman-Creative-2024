@@ -215,8 +215,8 @@
 
 .navProjectImage {
   min-width: 0px;
-  flex: 0 1 20%;
-  aspect-ratio: 4 / 5;
+  flex: 0 1 15%;
+  /* aspect-ratio: 4 / 5; */
   border-radius: var(--radius-sm);
 }
 

@@ -64,7 +64,7 @@ export default function Hero() {
 
             <For each={data()}>{(project, i) =>
               <A href={`/projects/${project.slug.current}`} onClick={hideMenu} class={styles.navProjectItem}>
-                <img src={urlFor(project.thumbnail).width(400).height(500).url()} class={styles.navProjectImage} />
+                <img src={urlFor(project.thumbnail).width(400).height(400).url()} class={styles.navProjectImage} />
                 <div class={styles.projectText}>
                   <p class="h3">{project.title}</p>
                 <p class="utility">{project.subtitle}</p>
