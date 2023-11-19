@@ -68,6 +68,8 @@
   --anim-md: 0.6s var(--anim-easing);
   --anim-lg: 1.2s var(--anim-easing);
 
+  --icon-sm: 10px;
+
   --header-height: 140px;
 
   --sidebar-width: 300px;

@@ -29,7 +29,8 @@ function App() {
   return (
     <Router>
       <div class="App">
-        <Show when={!data.loading} fallback={Preloader}>
+        <Preloader />
+        {/* <Show when={!data.loading} fallback={Preloader}> */}
           <Header />
           <Routes>
             <Route path="/" component={Home}></Route>
@@ -37,7 +38,7 @@ function App() {
             <Route path="/projects/:slug" component={Project}></Route>
           </Routes>
         {/* <Footer /> */}
-        </Show>
+        {/* </Show> */}
       </div>
     </Router>
   )
