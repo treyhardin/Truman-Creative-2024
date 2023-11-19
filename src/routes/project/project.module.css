@@ -209,6 +209,8 @@
     aspect-ratio: 4 / 3;
     flex: 1 0 auto;
     position: relative;
+    width: 100%;
+    max-height: calc(100dvh - var(--header-height) - var(--space-md) - 10vh);
   }
 
   .projectInfo {

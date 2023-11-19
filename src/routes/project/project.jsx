@@ -50,7 +50,7 @@ export default function Project() {
   }
 
   onMount(() => {
-    console.log(videoAutoplayRef)
+    // console.log(videoAutoplayRef)
     // videoAutoplayRef.addEventListener('loadedmetadata', consolelog('hi'))
   })
 
@@ -69,7 +69,7 @@ export default function Project() {
               </div>
               <video class={styles.videoPlayer} ref={videoPlayerRef} controls>
                 <source type="video/mp4" src={currentProject().videoURL} />
-                <source type="video/quicktime" src={currentProject().videoURL} />
+                {/* <source type="video/quicktime" src={currentProject().videoURL} /> */}
               </video>
               <p class="utility">{currentProject().title}</p>
             </div>
@@ -89,8 +89,9 @@ export default function Project() {
               </Show>
 
               <Show when={currentProject().videoAutoplayURL}>
-                <video class={styles.videoAutoplay} autoplay muted loop playsinline controls ref={videoAutoplayRef} >
+                <video class={styles.videoAutoplay} autoplay muted loop >
                   <source type="video/mp4" src={currentProject().videoAutoplayURL} />
+
                   {/* <source type="video/quicktime" src={currentProject().videoAutoplayURL} /> */}
                   {/* <img 
                     src={urlFor(currentProject().mainImage).width(1200).height(1000).url()} 
