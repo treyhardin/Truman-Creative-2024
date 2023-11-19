@@ -1,4 +1,4 @@
-button {
+.button {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -8,13 +8,16 @@ button {
   transition: background-color var(--anim-sm);
   width: 100%;
   margin-bottom: var(--space-xs);
+  overflow: hidden;
+  background-color: var(--color-primary);
 }
 
-button:hover {
+.button:hover {
   background-color: var(--color-secondary);
+  color: var(--color-ink);
 }
 
-button svg {
+.button svg {
   width: 12px;
 }
 
@@ -27,7 +30,7 @@ button svg {
   transition: translate var(--anim-sm);
 }
 
-button:hover .buttonText {
+.button:hover .buttonText {
   translate: var(--space-2xs) 0;
 }
 
@@ -40,7 +43,7 @@ button:hover .buttonText {
   transition: translate var(--anim-sm);
 }
 
-button:hover .buttonLines {
+.button:hover .buttonLines {
   translate: 100% 0;
 }
 

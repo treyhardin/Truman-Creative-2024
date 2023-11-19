@@ -151,6 +151,8 @@ button {
   background-color: var(--color-primary);
   cursor: pointer;
   transition: border-color 0.25s;
+  display: flex;
+  flex-direction: row;
 }
 button:hover {
   /* border-color: #646cff; */
@@ -158,6 +160,10 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+button svg {
+  width: 12px;
 }
 
 @media (prefers-color-scheme: light) {

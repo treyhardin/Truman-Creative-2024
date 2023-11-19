@@ -176,6 +176,7 @@
 }
 
 .otherProjectsWrapper {
+  margin-top: var(--space-lg);
   display: flex;
   flex-direction: column;
 }
