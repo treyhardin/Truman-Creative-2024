@@ -198,7 +198,7 @@
   width: 14px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 960px) {
   .project {
     flex-direction: column;
     align-items: stretch;
