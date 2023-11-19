@@ -15,6 +15,7 @@ export default function Project() {
 
   let projectRef
   let videoPlayerRef
+  let videoAutoplayRef
   
 
   const sortProjects = () => {
@@ -48,6 +49,11 @@ export default function Project() {
     setLightboxActive(false)
   }
 
+  onMount(() => {
+    console.log(videoAutoplayRef)
+    // videoAutoplayRef.addEventListener('loadedmetadata', consolelog('hi'))
+  })
+
   return (
     <>
       <Suspense fallback={<p>Loading...</p>}>
@@ -63,6 +69,7 @@ export default function Project() {
               </div>
               <video class={styles.videoPlayer} ref={videoPlayerRef} controls>
                 <source type="video/mp4" src={currentProject().videoURL} />
+                <source type="video/quicktime" src={currentProject().videoURL} />
               </video>
               <p class="utility">{currentProject().title}</p>
             </div>
@@ -82,8 +89,13 @@ export default function Project() {
               </Show>
 
               <Show when={currentProject().videoAutoplayURL}>
-                <video class={styles.videoAutoplay} autoplay loop muted playsinline defaultMuted >
+                <video class={styles.videoAutoplay} autoplay muted loop playsinline controls ref={videoAutoplayRef} >
                   <source type="video/mp4" src={currentProject().videoAutoplayURL} />
+                  {/* <source type="video/quicktime" src={currentProject().videoAutoplayURL} /> */}
+                  {/* <img 
+                    src={urlFor(currentProject().mainImage).width(1200).height(1000).url()} 
+                    class={styles.projectImage}
+                  /> */}
                 </video>
               </Show>
 
