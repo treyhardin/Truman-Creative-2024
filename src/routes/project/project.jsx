@@ -1,6 +1,6 @@
-import { A, useLocation, useParams } from "@solidjs/router";
-import { client, urlFor } from "../../utils/sanity-client";
-import { For, Show, Suspense, createEffect, createResource, createSignal, onMount } from "solid-js";
+import { A, useParams } from "@solidjs/router";
+import { urlFor } from "../../utils/sanity-client";
+import { For, Show, Suspense, createEffect, createMemo, createResource, createSignal, onMount } from "solid-js";
 import styles from './project.module.css'
 import Icon from "../../utils/icons";
 import Button from "../../components/button/button";
@@ -13,9 +13,10 @@ export default function Project() {
   const [ otherProjects, setOtherProjects ] = createSignal(null)
   const [ lightboxActive, setLightboxActive ] = createSignal(false)
 
+  const [ autoplayVideo, setAutoplayVideo ] = createSignal(null)
+
   let projectRef
   let videoPlayerRef
-  let videoAutoplayRef
   
 
   const sortProjects = () => {
@@ -28,6 +29,7 @@ export default function Project() {
       data().map((project) => {
         if (project.slug.current == params.slug) {
           setCurrentProject(project)
+          setAutoplayVideo(project.videoAutoplayURL)
         } else {
           otherProjects.push(project)
         }
@@ -49,11 +51,6 @@ export default function Project() {
     setLightboxActive(false)
   }
 
-  onMount(() => {
-    // console.log(videoAutoplayRef)
-    // videoAutoplayRef.addEventListener('loadedmetadata', consolelog('hi'))
-  })
-
   return (
     <>
       <Suspense fallback={<p>Loading...</p>}>
@@ -69,7 +66,6 @@ export default function Project() {
               </div>
               <video class={styles.videoPlayer} ref={videoPlayerRef} controls>
                 <source type="video/mp4" src={currentProject().videoURL} />
-                {/* <source type="video/quicktime" src={currentProject().videoURL} /> */}
               </video>
               <p class="utility">{currentProject().title}</p>
             </div>
@@ -81,6 +77,7 @@ export default function Project() {
             {/* Project Media */}
             <div class={styles.projectImageWrapper}>
 
+              {/* Lightbox */}
               <Show when={currentProject().videoURL}>
                 <button class={styles.playButton} onClick={openLightbox}>
                   <Icon glyph="star" />
@@ -88,23 +85,18 @@ export default function Project() {
                 </button>
               </Show>
 
-              <Show when={currentProject().videoAutoplayURL}>
-                <video class={styles.videoAutoplay} autoplay muted loop >
-                  <source type="video/mp4" src={currentProject().videoAutoplayURL} />
-
-                  {/* <source type="video/quicktime" src={currentProject().videoAutoplayURL} /> */}
-                  {/* <img 
-                    src={urlFor(currentProject().mainImage).width(1200).height(1000).url()} 
-                    class={styles.projectImage}
-                  /> */}
-                </video>
+              {/* Autoplay Video */}
+              <Show when={autoplayVideo()}>
+                <video class={styles.videoAutoplay} autoplay muted loop src={autoplayVideo()} />
               </Show>
 
+              {/* Image */}
               <img 
                 src={urlFor(currentProject().mainImage).width(1200).height(1000).url()} 
                 class={styles.projectImage}
               />
 
+              {/* Badge */}
               <div class={styles.subtitle}>
                 <Icon glyph="star" />
                 <p class="utility">{currentProject().subtitle}</p>
