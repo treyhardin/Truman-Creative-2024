@@ -87,7 +87,7 @@ export default function Project() {
 
               {/* Autoplay Video */}
               <Show when={autoplayVideo()}>
-                <video class={styles.videoAutoplay} autoplay muted loop src={autoplayVideo()} />
+                <video class={styles.videoAutoplay} autoplay muted loop src={autoplayVideo()} onloadedmetadata="this.muted = true"/>
               </Show>
 
               {/* Image */}
